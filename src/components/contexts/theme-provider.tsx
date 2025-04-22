@@ -40,7 +40,6 @@ export function ThemeProvider({
   // };
 
   return (
-    // inga agar ...props ezafi pakesh kon
     <ThemeProviderContext.Provider {...props} value={{ theme, setTheme }}>
       {children}
     </ThemeProviderContext.Provider>

@@ -9,7 +9,7 @@ const Layout = ({ children }: PropsWithChildren) => {
         {children}
       </main>
       <footer className="border-t backdrop-blur supports-[backdrop-filter]:bg-background/60 py-12">
-        <div className="container mx-auto px-4 text-center text-gray-200">
+        <div className="container mx-auto px-4 text-center dark:text-gray-200">
           <p>Made with 💗 by Pooya Samimi</p>
         </div>
       </footer>
