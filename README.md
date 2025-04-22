@@ -2,6 +2,10 @@
 
 A modern, responsive weather application built with React, TypeScript, and Tailwind CSS. This application provides real-time weather information, forecasts, and location-based weather data.
 
+## Live Demo 🌐
+
+Check out the live demo: [Weather Dashboard](https://weather-g7gu3r9h7-pooyas-projects-e9105c71.vercel.app/)
+
 ## Features ✨
 
 - 🌍 Real-time weather data based on user location
