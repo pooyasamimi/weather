@@ -50,7 +50,7 @@ export function useGeolocation() {
             errorMessage = "Location information is unavailable.";
             break;
           case error.TIMEOUT:
-            errorMessage = "Location request timed out.";
+            errorMessage = "Location request timed out. Please turn on VPN and try again.";
             break;
           default:
             errorMessage = "An unknown error occurred.";
