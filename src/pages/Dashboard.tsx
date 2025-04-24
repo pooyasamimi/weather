@@ -3,7 +3,7 @@ import {
   useReverseGeocodeQuery,
   useWeatherQuery,
 } from "@/hooks/useWeather";
-import {CurrentWeather} from "@/components/CurrentWeather";
+import { CurrentWeather } from "@/components/CurrentWeather";
 import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
 import { Button } from "../components/ui/button";
 import { MapPin, AlertTriangle, RefreshCw } from "lucide-react";
@@ -62,7 +62,10 @@ export function WeatherDashboard() {
         <MapPin className="h-4 w-4" />
         <AlertTitle>Location Required</AlertTitle>
         <AlertDescription className="flex flex-col gap-4">
-          <p>Please enable location access to see your local weather.</p>
+          <p>
+            Please enable location access to see your local weather or search
+            for a city .<>br</> مرسییی
+          </p>
           <Button variant="outline" onClick={getLocation} className="w-fit">
             <MapPin className="mr-2 h-4 w-4" />
             Enable Location

@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react";
 import { format } from "date-fns";
+import { faIR } from "date-fns/locale";
 import type { ForecastData } from "@/api/types";
 
 interface WeatherForecastProps {
@@ -50,9 +51,9 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
   const formatTemp = (temp: number) => `${Math.round(temp)}°`;
 
   return (
-    <Card>
+    <Card className="rtl">
       <CardHeader>
-        <CardTitle>5-Day Forecast</CardTitle>
+        <CardTitle>پیش‌بینی 5 روز آینده</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
@@ -63,7 +64,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
             >
               <div className="col-span-1 md:col-span-1">
                 <p className="font-medium">
-                  {format(new Date(day.date * 1000), "EEE, MMM d")}
+                  {format(new Date(day.date * 1000), "EEE, d MMM", { locale: faIR })}
                 </p>
                 <p className="text-sm text-muted-foreground capitalize">
                   {day.weather.description}
@@ -72,11 +73,11 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
 
               <div className="col-span-2 md:col-span-1 flex flex-wrap justify-center gap-4">
                 <span className="flex items-center text-blue-500">
-                  <ArrowDown className="mr-1 h-4 w-4" />
+                  <ArrowDown className="ml-1 h-4 w-4" />
                   {formatTemp(day.temp_min)}
                 </span>
                 <span className="flex items-center gap-1 text-red-500">
-                  <ArrowUp className="mr-1 h-4 w-4" />
+                  <ArrowUp className="ml-1 h-4 w-4" />
                   {formatTemp(day.temp_max)}
                 </span>
                 <span className="flex items-center gap-1">
@@ -85,7 +86,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                 </span>
                 <span className="flex items-center gap-1">
                   <Wind className="h-4 w-4 text-blue-500" />
-                  <span className="text-sm">{day.wind}m/s</span>
+                  <span className="text-sm">{day.wind} متر بر ثانیه</span>
                 </span>
               </div>
             </div>

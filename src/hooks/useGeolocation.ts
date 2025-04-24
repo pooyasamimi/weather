@@ -44,13 +44,14 @@ export function useGeolocation() {
         switch (error.code) {
           case error.PERMISSION_DENIED:
             errorMessage =
-              "Location permission denied. Please enable location access.";
+              "Location permission denied. Please enable location access or search for a city \n. یا شهر سرچ کن یا اجازه لوکیشن روبده";
             break;
           case error.POSITION_UNAVAILABLE:
             errorMessage = "Location information is unavailable.";
             break;
           case error.TIMEOUT:
-            errorMessage = "Location request timed out. Please turn on VPN and try again.";
+            errorMessage =
+              "Location request timed out. Please turn on VPN and try again.";
             break;
           default:
             errorMessage = "An unknown error occurred.";
