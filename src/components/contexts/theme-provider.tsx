@@ -4,8 +4,7 @@ import ThemeProviderContext from "./ThemeProviderContext";
 export function ThemeProvider({
   children,
   defaultTheme = "system",
-  storageKey = "ui-theme",
-  ...props
+  storageKey = "theme",
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
@@ -31,16 +30,8 @@ export function ThemeProvider({
     root.classList.add(theme);
   }, [theme, setTheme, storageKey]);
 
-  // const value = {
-  //   theme,
-  //   setTheme: (theme: Theme) => {
-  //     localStorage.setItem(storageKey, theme);
-  //     setTheme(theme);
-  //   },
-  // };
-
   return (
-    <ThemeProviderContext.Provider {...props} value={{ theme, setTheme }}>
+    <ThemeProviderContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeProviderContext.Provider>
   );

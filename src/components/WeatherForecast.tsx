@@ -23,7 +23,7 @@ interface DailyForecast {
 }
 
 export function WeatherForecast({ data }: WeatherForecastProps) {
-  // Group forecast by day and get daily min/max
+  // group forecast by day and get daily min or max
   const dailyForecasts = data.list.reduce((acc, forecast) => {
     const date = format(new Date(forecast.dt * 1000), "yyyy-MM-dd");
 
@@ -44,10 +44,9 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
     return acc;
   }, {} as Record<string, DailyForecast>);
 
-  // Get next 5 days
+  // get next 5 days
   const nextDays = Object.values(dailyForecasts).slice(1, 6);
 
-  // Format temperature
   const formatTemp = (temp: number) => `${Math.round(temp)}°`;
 
   return (

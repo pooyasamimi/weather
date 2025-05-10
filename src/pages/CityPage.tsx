@@ -25,7 +25,7 @@ export function CityPage() {
       <Alert variant="destructive">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
-          Failed to load weather data. Please try again.
+         Shit! Failed to load weather data. Please try again.
         </AlertDescription>
       </Alert>
     );

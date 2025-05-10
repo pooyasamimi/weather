@@ -26,7 +26,7 @@ export function WeatherDashboard() {
   const forecastQuery = useForecastQuery(coordinates);
   const locationQuery = useReverseGeocodeQuery(coordinates);
 
-  // Function to refresh all data
+  // Refresh all data
   const handleRefresh = () => {
     getLocation();
     if (coordinates) {
@@ -64,7 +64,7 @@ export function WeatherDashboard() {
         <AlertDescription className="flex flex-col gap-4">
           <p>
             Please enable location access to see your local weather or search
-            for a city .<>br</> مرسییی
+            for a city .<>br</> merci
           </p>
           <Button variant="outline" onClick={getLocation} className="w-fit">
             <MapPin className="mr-2 h-4 w-4" />

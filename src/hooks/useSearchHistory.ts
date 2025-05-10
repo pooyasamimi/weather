@@ -35,7 +35,7 @@ export function useSearchHistory() {
         searchedAt: Date.now(),
       };
 
-      // Remove duplicates and keep only last 10 searches
+      // Remove Tekrariha
       const filteredHistory = history.filter(
         (item) => !(item.lat === search.lat && item.lon === search.lon)
       );

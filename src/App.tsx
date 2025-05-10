@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Layout from "./components/Layout";
 import {WeatherDashboard} from "./pages/Dashboard";
 import { CityPage } from "./pages/CityPage";

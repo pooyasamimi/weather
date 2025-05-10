@@ -22,7 +22,7 @@ interface ChartData {
 
 const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
   const chartData: ChartData[] = data.list
-  .slice(0, 8) // Get next 24 hours (3-hour intervals)
+  .slice(0, 8) // Get next 24 hours
   .map((item) => ({
     time: format(new Date(item.dt * 1000), "ha"),
     temp: Math.round(item.main.temp),
@@ -32,7 +32,7 @@ const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
   return (
     <Card className="flex-1">
     <CardHeader>
-      <CardTitle>Today's Temperature</CardTitle>
+      <CardTitle>Today's Temperature 🌡️ </CardTitle>
     </CardHeader>
     <CardContent>
       <div className="h-[200px] w-full">
