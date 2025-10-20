@@ -4,7 +4,7 @@ A modern, responsive weather application built with React, TypeScript, and Tailw
 
 ## Live Demo 🌐
 
-Check out the live demo: [Weather Dashboard](https://weather-eta-indol.vercel.app/)
+Check out the live demo: [Weather Dashboard](https://weather-pooya.vercel.app/)
 
 ## Features ✨
 
