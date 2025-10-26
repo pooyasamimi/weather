@@ -13,6 +13,8 @@ import { WeatherForecast } from "../components/WeatherForecast";
 import HourlyTemperature from "@/components/HourlyTemperature";
 import WeatherSkeleton from "../components/LoadingSkeleton";
 import { FavoriteCities } from "@/components/FavoriteCities";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 export function WeatherDashboard() {
   const {
@@ -25,6 +27,7 @@ export function WeatherDashboard() {
   const weatherQuery = useWeatherQuery(coordinates);
   const forecastQuery = useForecastQuery(coordinates);
   const locationQuery = useReverseGeocodeQuery(coordinates);
+  const navigate = useNavigate();
 
   // Refresh all data
   const handleRefresh = () => {
@@ -41,19 +44,32 @@ export function WeatherDashboard() {
   }
 
   if (locationError) {
-    return (
-      <Alert variant="destructive">
-        <AlertTriangle className="h-4 w-4" />
-        <AlertTitle>Location Error</AlertTitle>
-        <AlertDescription className="flex flex-col gap-4">
-          <p>{locationError}</p>
-          <Button variant="outline" onClick={getLocation} className="w-fit">
-            <MapPin className="mr-2 h-4 w-4" />
-            Enable Location
-          </Button>
-        </AlertDescription>
-      </Alert>
-    );
+    const isMobile =
+      window.matchMedia("(max-width: 768px)").matches ||
+      /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (!isMobile) {
+      toast.error(locationError, {
+        position: "top-center",
+        className: "bg-red-500 text-white",
+        duration: 5000,
+      });
+      setTimeout(() => navigate("/city/Tehran"), 2500);
+    } else {
+      return (
+        <Alert variant="destructive">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertTitle>Location Error</AlertTitle>
+          <AlertDescription className="flex flex-col gap-4">
+            <p>{locationError}</p>
+            <Button variant="outline" onClick={getLocation} className="w-fit">
+              <MapPin className="mr-2 h-4 w-4" />
+              Enable Location
+            </Button>
+          </AlertDescription>
+        </Alert>
+      );
+    }
   }
 
   if (!coordinates) {
