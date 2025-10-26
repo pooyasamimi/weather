@@ -47,7 +47,8 @@ export function useGeolocation() {
               "Location permission denied. Please enable location access or search for a city \n. یا شهر سرچ کن یا اجازه لوکیشن روبده";
             break;
           case error.POSITION_UNAVAILABLE:
-            errorMessage = "Location information is unavailable.";
+            errorMessage =
+              "Location access is disabled or your device does not have a GPS module.";
             break;
           case error.TIMEOUT:
             errorMessage =
@@ -67,7 +68,7 @@ export function useGeolocation() {
         enableHighAccuracy: true,
         timeout: 5000,
         maximumAge: 0,
-      }
+      },
     );
   };
 
